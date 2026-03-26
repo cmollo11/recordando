@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F5F2EC;
+  --foreground: #2C3E2D;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-lato);
+  --font-display: var(--font-playfair);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.hero {
+  padding: 140px 20px;
+  background: linear-gradient(to bottom, #f9f9f9, #f1f1f1);
+  text-align: center;
+}
+
+.hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.hero-professional {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #111;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #333;
+}
+
+.btn-secondary {
+  border: 1px solid #111;
+  color: #111;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #eee;
+}
+
+.hero-links {
+  font-size: 14px;
+  color: #666;
+}
+
+.hero-links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero-links a:hover {
+  color: #000;
+}
+
+.hero-emotional {
+  margin-top: 25px;
+  font-style: italic;
+  color: #555;
+}
+
+html {
+  scroll-behavior: smooth;
+}
