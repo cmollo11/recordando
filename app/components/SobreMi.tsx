@@ -29,7 +29,7 @@ export default function SobreMi() {
   }, [])
 
   const carrusel = (
-    <div className="relative w-full h-full min-h-100 rounded-2xl overflow-hidden" style={{ border: "0.5px solid #DDD6C8" }}>
+    <div className="relative w-full rounded-2xl overflow-hidden" style={{ border: "0.5px solid #DDD6C8", height: "320px" }}>
       {fotos.map((foto, i) => (
         <img
           key={i}
@@ -82,13 +82,13 @@ export default function SobreMi() {
   )
 
   return (
-    <section id="sobre-mi" className="py-16" style={{ background: "#F5F2EC" }}>
+    <section id="sobre-mi" className="pt-8 pb-16 md:py-16" style={{ background: "#F5F2EC" }}>
       <div className="max-w-5xl mx-auto px-6">
 
         {/* MOBILE: título → texto → carrusel */}
         <div className="md:hidden mb-12">
           {texto}
-          <div className="mt-10 w-full">
+          <div className="mt-8 w-full" style={{ height: "320px" }}>
             {carrusel}
           </div>
         </div>
