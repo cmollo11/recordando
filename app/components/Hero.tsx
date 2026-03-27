@@ -13,7 +13,7 @@ export default function Hero() {
   ]
 
   return (
-    <section className="min-h-screen overflow-hidden" style={{ background: "#F5F2EC" }}>
+    <section className="overflow-hidden" style={{ background: "#F5F2EC", minHeight: "100dvh" }}>
 
       <header className="flex items-center justify-between px-6 py-6 relative z-50">
         <div className="flex items-center gap-3">
