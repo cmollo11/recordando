@@ -55,7 +55,7 @@ export default function SobreMi() {
   const texto = (
     <div className="flex-1">
       <h2 className="font-display text-3xl md:text-4xl font-light mb-8 leading-tight" style={{ color: "#2C3E2D" }}>
-        Mi camino hasta acá
+        Mi camino
       </h2>
       <p className="text-lg leading-relaxed mb-6" style={{ color: "#5C7A58" }}>
         Hola, soy Cristian Mollo, licenciado en turismo y terapeuta holístico.

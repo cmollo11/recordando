@@ -87,7 +87,7 @@ export default function Servicios() {
       <div className="max-w-6xl mx-auto">
 
         <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-14" style={{ color: "#F5F2EC" }}>
-          Sesiones para reconectar con tu energía
+          Experiencias para liberar y armonizar tu energía 
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-10">
