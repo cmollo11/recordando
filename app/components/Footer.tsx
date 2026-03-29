@@ -63,9 +63,9 @@ export default function Footer() {
           {/* Navegación */}
           <nav className="flex flex-wrap justify-center gap-6">
             {[
-              { label: "Sobre mí", href: "#sobre-mi" },
-              { label: "Terapias", href: "#servicios" },
-              { label: "Formaciones", href: "#formaciones" },
+              { label: "Sobre mí", href: "/#sobre-mi" },
+              { label: "Terapias", href: "/#servicios" },
+              { label: "Formaciones", href: "/#formaciones" },
               { label: "Viajes", href: "/viajes" },
             ].map((item) => (
               <Link

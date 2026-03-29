@@ -32,10 +32,10 @@ function DestinoCard({ destino, onClick }: { destino: Destino; onClick: () => vo
       style={{ height: "320px" }}
     >
       <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
         style={{ backgroundImage: `url(${destino.imagen})` }}
       />
-      <div className="absolute inset-0 group-hover:bg-black/40 transition duration-500" style={{ background: "rgba(26,43,27,0.55)" }} />
+      <div className="absolute inset-0" style={{ background: "rgba(26,43,27,0.55)" }} />
       <div className="relative h-full flex flex-col justify-end p-6 text-white">
         <h3 className="font-display text-2xl md:text-3xl mb-2" style={{ color: "#C9A96E" }}>{destino.titulo}</h3>
         <p className="text-sm mb-3" style={{ color: "#E8E0D0" }}>{destino.frase}</p>
