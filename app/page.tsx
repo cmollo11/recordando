@@ -11,9 +11,9 @@ export default function Home() {
     <>
       <Hero />
       <SobreMi />
-      <separador />
+      <div style={{ borderTop: "0.5px solid #DDD6C8" }} />
       <Servicios />
-      <separador /> 
+      <div style={{ borderTop: "0.5px solid #DDD6C8" }} />
       <Formaciones />
       <Viajes />
       <CTA />
