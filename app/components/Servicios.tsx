@@ -77,6 +77,16 @@ export default function Servicios() {
       ideal: "Ideal si buscás respuestas y claridad en un momento de decisión.",
       whatsapp: "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20de%20Registros%20Ak%C3%A1shicos",
     },
+    {
+      titulo: "Limpieza de Hogares",
+      descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imagen: "/images/limpieza.jpg",
+      quees: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      beneficios: ["Lorem ipsum dolor sit amet", "Consectetur adipiscing elit", "Sed do eiusmod tempor"],
+      duracion: "60 minutos aprox.",
+      ideal: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+      whatsapp: "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20de%20Limpieza%20de%20Hogares",
+    },
   ]
 
   return (
@@ -87,7 +97,7 @@ export default function Servicios() {
           Experiencias para liberar y armonizar tu energía
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-10">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {servicios.map((servicio, i) => (
             <ServicioCard
               key={servicio.titulo}
