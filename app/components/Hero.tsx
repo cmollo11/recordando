@@ -8,7 +8,7 @@ export default function Hero() {
 
   const cards = [
     { title: "Terapias", text: "Volver al equilibrio interior", link: "#servicios", img: "/images/terapias.jpg" },
-    { title: "Viajes & Experiencias ", text: "Explorar el mundo y tu energía", link: "/viajes", img: "/images/viajes.jpg", dorado: true },
+    { title: "Viajes & Experiencias", text: "Explorar el mundo y tu energía", link: "/viajes", img: "/images/viajes.jpg", dorado: true },
     { title: "Formaciones", text: "Aprender a canalizar y expandir", link: "#formaciones", img: "/images/formaciones.jpg" },
   ]
 
@@ -17,11 +17,7 @@ export default function Hero() {
 
       <header className="flex items-center justify-between px-6 py-6 relative z-50">
         <div className="flex items-center gap-3">
-          <img
-            src="/images/logo.svg"
-            alt="Recordando"
-            className="h-10 w-auto"
-          />
+          <img src="/images/logo.svg" alt="Recordando" className="h-10 w-auto" />
           <div className="flex flex-col">
             <h1 className="font-display text-2xl font-medium leading-tight" style={{ color: "#2C3E2D" }}>
               Recordando
@@ -47,7 +43,7 @@ export default function Hero() {
       </header>
 
       <div
-        className={`fixed inset-0 backdrop-blur-lg text-white flex flex-col justify-center items-center transition-all duration-500 z-100
+        className={`fixed inset-0 backdrop-blur-lg text-white flex flex-col justify-center items-center transition-all duration-500 z-[100]
         ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         style={{ background: "rgba(44, 62, 45, 0.92)" }}
       >
@@ -67,52 +63,31 @@ export default function Hero() {
         </nav>
       </div>
 
-      {/* MOBILE */}
+      {/* MOBILE — 3 cards verticales full width */}
       <div className="md:hidden flex flex-col gap-4 px-6 pb-10">
-
-        {/* Fila superior: Terapias + Formaciones */}
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { title: "Terapias", text: "Volver al equilibrio interior", link: "#servicios", img: "/images/terapias.jpg" },
-            { title: "Formaciones", text: "Aprender a canalizar y expandir", link: "#formaciones", img: "/images/formaciones.jpg" },
-          ].map((item, i) => (
-            <Link
-              key={i}
-              href={item.link}
-              className="relative overflow-hidden rounded-2xl h-48 group"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                style={{ backgroundImage: `url(${item.img})` }}
-              />
-              <div className="absolute inset-0" style={{ background: "rgba(44,62,45,0.35)" }} />
-              <div className="relative h-full flex flex-col justify-end p-4 text-white">
-                <h2 className="font-display text-lg mb-1" style={{ color: "#F5F2EC" }}>{item.title}</h2>
-                <p className="text-xs opacity-80">{item.text}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* Fila inferior: Viajes destacado */}
-        <Link
-          href="/viajes"
-          className="relative overflow-hidden rounded-2xl h-56 group"
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-            style={{ backgroundImage: "url(/images/viajes.jpg)" }}
-          />
-          <div className="absolute inset-0" style={{ background: "rgba(44,62,45,0.35)" }} />
-          <div className="relative h-full flex flex-col justify-end p-4 text-white">
-            <h2 className="font-display text-xl mb-1" style={{ color: "#C9A96E" }}>Viajes</h2>
-            <p className="text-sm opacity-80">Explorar el mundo y tu energía</p>
-          </div>
-        </Link>
-
+        {cards.map((item, i) => (
+          <Link
+            key={i}
+            href={item.link}
+            className="relative overflow-hidden rounded-2xl group"
+            style={{ height: "180px" }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+              style={{ backgroundImage: `url(${item.img})` }}
+            />
+            <div className="absolute inset-0" style={{ background: "rgba(44,62,45,0.35)" }} />
+            <div className="relative h-full flex flex-col justify-end p-4 text-white">
+              <h2 className="font-display text-xl mb-1" style={{ color: item.dorado ? "#C9A96E" : "#F5F2EC" }}>
+                {item.title}
+              </h2>
+              <p className="text-sm opacity-80">{item.text}</p>
+            </div>
+          </Link>
+        ))}
       </div>
 
-      {/* DESKTOP */}
+      {/* DESKTOP — 3 cards en fila */}
       <div className="hidden md:grid grid-cols-3 gap-6 px-6 pb-10">
         {cards.map((item, i) => (
           <Link

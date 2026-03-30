@@ -31,10 +31,7 @@ function ServicioCard({ servicio, onClick, delay }: { servicio: Servicio; onClic
     >
       <div
         className="absolute inset-0 bg-cover bg-center rounded-2xl"
-        style={{
-          backgroundImage: `url(${servicio.imagen})`,
-          transition: "transform 0.7s ease",
-        }}
+        style={{ backgroundImage: `url(${servicio.imagen})` }}
       />
       <div
         className="absolute inset-0 rounded-2xl"
@@ -83,11 +80,11 @@ export default function Servicios() {
   ]
 
   return (
-    <section id="servicios" className="py-20 px-6" style={{ background: "#2C3E2D" }}>
+    <section id="servicios" className="py-20 px-6" style={{ background: "#F5F2EC" }}>
       <div className="max-w-6xl mx-auto">
 
-        <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-14" style={{ color: "#F5F2EC" }}>
-          Experiencias para liberar y armonizar tu energía 
+        <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-14" style={{ color: "#2C3E2D" }}>
+          Experiencias para liberar y armonizar tu energía
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-10">
@@ -102,7 +99,7 @@ export default function Servicios() {
         </div>
 
         {/* Bloque de confianza */}
-        <div className="rounded-2xl p-6 md:p-8 my-10 md:my-16" style={{ background: "#3d5c3e" }}>
+        <div className="rounded-2xl p-6 md:p-8 my-10 md:my-16" style={{ background: "#2C3E2D" }}>
           <div className="flex flex-col md:flex-row md:justify-center md:gap-0">
             <div className="text-center py-3 md:py-0 md:px-12">
               <p className="font-display text-xl md:text-2xl font-medium mb-1" style={{ color: "#F5F2EC" }}>+10 años</p>
@@ -124,10 +121,10 @@ export default function Servicios() {
         </div>
 
         <div className="text-center">
-          <p className="mb-2" style={{ color: "#F5F2EC" }}>
+          <p className="mb-2" style={{ color: "#2C3E2D" }}>
             No necesitás experiencia previa. Solo apertura para trabajar en vos.
           </p>
-          <p className="text-sm" style={{ color: "#8FA888" }}>
+          <p className="text-sm" style={{ color: "#5C7A58" }}>
             ¿Tenés dudas? Escribime antes de agendar.
           </p>
         </div>
@@ -158,7 +155,6 @@ export default function Servicios() {
             >
               ✕
             </button>
-
             <h3 className="font-display text-3xl font-medium mb-6" style={{ color: "#F5F2EC" }}>
               {modalAbierto.titulo}
             </h3>

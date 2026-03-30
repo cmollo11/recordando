@@ -114,13 +114,13 @@ export default function Formaciones() {
   ]
 
   return (
-    <section id="formaciones" className="py-16 md:py-24 px-6" style={{ background: "#1a2b1b" }}>
+    <section id="formaciones" className="py-16 md:py-24 px-6" style={{ background: "#F5F2EC" }}>
       <div className="max-w-5xl mx-auto">
 
-        <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-4" style={{ color: "#F5F2EC" }}>
+        <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-4" style={{ color: "#2C3E2D" }}>
           Formación en Reiki Ryoho Usui
         </h2>
-        <p className="text-center mb-10 md:mb-16 max-w-xl mx-auto" style={{ color: "#8FA888" }}>
+        <p className="text-center mb-10 md:mb-16 max-w-xl mx-auto" style={{ color: "#5C7A58" }}>
           Tres formas de hacer tu camino. Elegí la que resuene hoy con vos.
         </p>
 
@@ -159,7 +159,6 @@ export default function Formaciones() {
             >
               ✕
             </button>
-
             <h3 className="font-display text-3xl font-medium mb-2" style={{ color: "#F5F2EC" }}>
               {modalAbierto.titulo}
             </h3>
