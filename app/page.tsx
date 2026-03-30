@@ -11,7 +11,9 @@ export default function Home() {
     <>
       <Hero />
       <SobreMi />
+      <separador />
       <Servicios />
+      <separador /> 
       <Formaciones />
       <Viajes />
       <CTA />
