@@ -95,7 +95,7 @@ export default function SobreMi() {
 
         {/* DESKTOP: carrusel + texto lado a lado, carrusel se estira al alto del texto */}
         <div className="hidden md:flex gap-16 items-stretch mb-12">
-          <div className="w-80 shrink-0 self-stretch">
+          <div className="w-80 shrink-0 self-stretch h-105">
             {carrusel}
           </div>
           {texto}
