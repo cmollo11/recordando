@@ -29,7 +29,7 @@ export default function SobreMi() {
   }, [])
 
   const carrusel = (
-    <div className="relative w-full rounded-2xl overflow-hidden" style={{ border: "0.5px solid #DDD6C8", height: "320px" }}>
+    <div className="relative w-full rounded-2xl overflow-hidden" style={{ border: "0.5px solid #DDD6C8" }}>
       {fotos.map((foto, i) => (
         <img
           key={i}
@@ -88,14 +88,14 @@ export default function SobreMi() {
         {/* MOBILE: título → texto → carrusel */}
         <div className="md:hidden mb-12">
           {texto}
-          <div className="mt-8 w-full" style={{ height: "320px" }}>
+          <div className="mt-8 w-full" style={{ height: "300px" }}>
             {carrusel}
           </div>
         </div>
 
-        {/* DESKTOP: carrusel + texto lado a lado */}
+        {/* DESKTOP: carrusel + texto lado a lado, carrusel se estira al alto del texto */}
         <div className="hidden md:flex gap-16 items-stretch mb-12">
-          <div className="w-80 shrink-0">
+          <div className="w-80 shrink-0 self-stretch">
             {carrusel}
           </div>
           {texto}
