@@ -79,12 +79,12 @@ export default function Servicios() {
     },
     {
       titulo: "Limpieza de Hogares",
-      descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      descripcion: "Limpieza de hogares con Reiki.",
       imagen: "/images/limpieza.jpg",
-      quees: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      beneficios: ["Lorem ipsum dolor sit amet", "Consectetur adipiscing elit", "Sed do eiusmod tempor"],
-      duracion: "60 minutos aprox.",
-      ideal: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+      quees: "Liberación de energías estancadas en tu hogar mediante Reiki. Una limpieza energética ayuda a renovar la vibración del espacio y a restaurar calma, liviandad y bienestar en los ambientes donde vivís.",
+      beneficios: ["Libera energías estancadas del hogar", "Restaura la armonía del ambiente", "Genera sensación de calma y liviandad", "Ayuda a soltar cargas energéticas acumuladas"],
+      duracion: "consultar por sesión presencial",
+      ideal: "Ideal cuando sentís el ambiente cargado y querés renovar la energía ó para cuando vas habitar un nuevo hogar",
       whatsapp: "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20de%20Limpieza%20de%20Hogares",
     },
   ]
