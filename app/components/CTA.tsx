@@ -11,7 +11,7 @@ export default function CTA() {
 
         <p style={{ color: "#8FA888" }}>
           Si sentís que es momento de dar el próximo paso,
-          podemos empezar hoy.
+          podemos empezar hoy
         </p>
 
       </div>
