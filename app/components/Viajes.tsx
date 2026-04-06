@@ -55,7 +55,7 @@ export default function Viajes() {
           className="font-display text-5xl md:text-7xl font-light mb-10 md:mb-12 tracking-tight"
           style={{ color: "#C9A96E" }}
         >
-          Viajes con Alma
+          Viajes con alma
         </h2>
 
         <p
@@ -69,7 +69,7 @@ export default function Viajes() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12 md:mb-16 text-center max-w-4xl mx-auto">
           <Stat end={15} suffix="+" label="Años de experiencia" />
           <Stat end={29} label="Países explorados" />
-          <Stat end={150} suffix="+" label="Viajeros conectados" />
+          <Stat end={330} suffix="+" label="Viajeros conectados" />
         </div>
 
         {/* CTA */}

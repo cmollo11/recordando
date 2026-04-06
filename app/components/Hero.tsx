@@ -13,11 +13,11 @@ export default function Hero() {
   ]
 
   return (
-    <section className="min-h-0 md:min-h-screen overflow-hidden" style={{ background: "#F5F2EC" }}>
+    <section className="min-h-0 md:min-h-screen overflow-hidden md:flex md:flex-col" style={{ background: "#F5F2EC" }}>
 
       <header className="flex items-center justify-between px-6 py-6 relative z-50">
         <div className="flex items-center gap-3">
-          <img src="/images/logo.svg" alt="Recordando" className="h-10 w-auto" />
+          <img src="/images/logo.svg" alt="Recordando" className="h-10 w-auto" style={{ imageRendering: "crisp-edges" }} />
           <div className="flex flex-col">
             <h1 className="font-display text-2xl font-medium leading-tight" style={{ color: "#2C3E2D" }}>
               Recordando
@@ -43,7 +43,7 @@ export default function Hero() {
       </header>
 
       <div
-        className={`fixed inset-0 backdrop-blur-lg text-white flex flex-col justify-center items-center transition-all duration-500 z-[100]
+        className={`fixed inset-0 backdrop-blur-lg text-white flex flex-col justify-center items-center transition-all duration-500 z-100
         ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         style={{ background: "rgba(44, 62, 45, 0.92)" }}
       >
@@ -88,12 +88,12 @@ export default function Hero() {
       </div>
 
       {/* DESKTOP — 3 cards en fila */}
-      <div className="hidden md:grid grid-cols-3 gap-6 px-6 pb-10">
+      <div className="hidden md:grid grid-cols-3 gap-6 px-6 pb-10 md:flex-1">
         {cards.map((item, i) => (
           <Link
             key={i}
             href={item.link}
-            className="relative overflow-hidden rounded-2xl h-105 group"
+            className="relative overflow-hidden rounded-2xl group" style={{ minHeight: "420px" }}
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"

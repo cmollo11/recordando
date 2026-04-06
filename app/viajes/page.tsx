@@ -167,7 +167,7 @@ export default function ViajesPage() {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/viajes.jpg')", opacity: 0.4 }} />
         <div className="relative z-10 text-center px-6 py-24 max-w-4xl mx-auto">
           <h1 className="font-display text-5xl md:text-7xl font-light mb-6 tracking-tight" style={{ color: "#C9A96E" }}>
-            Viajes con Alma
+            Viajes con alma
           </h1>
           <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto" style={{ color: "#E8E0D0" }}>
             Donde el camino exterior revela tu mundo interior.
@@ -206,7 +206,7 @@ export default function ViajesPage() {
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-center">
           <Stat end={15} suffix="+" label="Años de experiencia" />
           <Stat end={29} label="Países explorados" />
-          <Stat end={150} suffix="+" label="Viajeros conectados" />
+          <Stat end={330} suffix="+" label="Viajeros conectados" />
         </div>
       </section>
 
