@@ -7,17 +7,24 @@ export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const cards = [
-    { title: "Terapias", text: "Volver al equilibrio interior", link: "#servicios", img: "/images/terapias.jpg" },
-    { title: "Viajes & Experiencias", text: "Explorar el mundo y tu energía", link: "/viajes", img: "/images/viajes.jpg", dorado: true },
-    { title: "Formaciones", text: "Aprender a canalizar y expandir", link: "#formaciones", img: "/images/formaciones.jpg" },
+    { title: "Formaciones", text: "Aprender a canalizar y expandir", link: "#formaciones", img: "/images/formaciones.jpg", overlayTo: 0.6 },
+    { title: "Terapias", text: "Volver al equilibrio interior", link: "#servicios", img: "/images/terapias.jpg", destacado: true, dorado: true, overlayTo: 0.6 },
+    { title: "Retiros & Experiencias", text: "Explorar el mundo y tu energía", link: "#retiros", img: "/images/viajes.jpg", overlayTo: 0.4 },
   ]
+
+  // En mobile, el orden de aparición ES la jerarquía (no hay "centro" que lo compense
+  // como en desktop), así que Terapias va primera para que la primacía visual coincida
+  // con la prioridad real del negocio.
+  const terapiasCard = cards.find((c) => c.destacado)
+  const otrasCards = cards.filter((c) => !c.destacado)
+  const cardsMobile = terapiasCard ? [terapiasCard, ...otrasCards] : cards
 
   return (
     <section className="min-h-0 md:min-h-screen overflow-hidden md:flex md:flex-col" style={{ background: "#F5F2EC" }}>
 
       <header className="flex items-center justify-between px-6 py-6 relative z-50">
         <div className="flex items-center gap-3">
-          <img src="/images/logo.svg" alt="Recordando" className="h-10 w-auto" style={{ imageRendering: "crisp-edges" }} />
+          <img src="/images/logo.svg" alt="Recordando" className="h-10 w-auto" />
           <div className="flex flex-col">
             <h1 className="font-display text-2xl font-medium leading-tight" style={{ color: "#2C3E2D" }}>
               Recordando
@@ -56,53 +63,100 @@ export default function Hero() {
         </button>
 
         <nav className="flex flex-col items-center gap-8 text-2xl font-light">
-          <Link href="#sobre-mi" onClick={() => setMenuOpen(false)} style={{ color: "#F5F2EC" }}>Sobre mí</Link>
-          <Link href="#servicios" onClick={() => setMenuOpen(false)} style={{ color: "#F5F2EC" }}>Terapias</Link>
+          <Link href="#servicios" onClick={() => setMenuOpen(false)} style={{ color: "#C9A96E" }}>Terapias</Link>
+          <Link href="#testimonios" onClick={() => setMenuOpen(false)} style={{ color: "#F5F2EC" }}>Testimonios</Link>
           <Link href="#formaciones" onClick={() => setMenuOpen(false)} style={{ color: "#F5F2EC" }}>Formaciones</Link>
-          <Link href="/viajes" onClick={() => setMenuOpen(false)} style={{ color: "#C9A96E" }}>Viajes</Link>
+          <Link href="#retiros" onClick={() => setMenuOpen(false)} style={{ color: "#F5F2EC" }}>Retiros</Link>
+          <Link href="#sobre-mi" onClick={() => setMenuOpen(false)} style={{ color: "#F5F2EC" }}>Sobre mí</Link>
         </nav>
       </div>
 
-      {/* MOBILE — 3 cards verticales full width */}
+      {/* MOBILE — 3 cards verticales full width, Terapias primera (orden = jerarquía en mobile) */}
       <div className="md:hidden flex flex-col gap-4 px-6 pb-10">
-        {cards.map((item, i) => (
+        {cardsMobile.map((item, i) => (
           <Link
             key={i}
             href={item.link}
             className="relative overflow-hidden rounded-2xl group"
-            style={{ height: "180px" }}
+            style={{
+              height: "180px",
+              border: item.destacado ? "1px solid #C9A96E" : "none",
+            }}
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
               style={{ backgroundImage: `url(${item.img})` }}
             />
-            <div className="absolute inset-0" style={{ background: "rgba(44,62,45,0.35)" }} />
-            <div className="relative h-full flex flex-col justify-end p-4 text-white">
-              <h2 className="font-display text-xl mb-1" style={{ color: item.dorado ? "#C9A96E" : "#F5F2EC" }}>
-                {item.title}
-              </h2>
-              <p className="text-sm opacity-80">{item.text}</p>
+            <div
+              className="absolute inset-0"
+              style={{ background: `linear-gradient(to bottom, rgba(44,62,45,0.15) 0%, rgba(44,62,45,${item.overlayTo}) 100%)` }}
+            />
+            <div className="relative h-full flex justify-between items-end p-4 text-white">
+              <div>
+                <h2
+                  className="font-display mb-1"
+                  style={{
+                    color: item.dorado ? "#C9A96E" : "#F5F2EC",
+                    fontSize: item.destacado ? "22px" : "20px",
+                  }}
+                >
+                  {item.title}
+                </h2>
+                <p className="text-sm opacity-80">{item.text}</p>
+              </div>
+              <span
+                aria-label={`Explorar ${item.title}`}
+                className="shrink-0 text-xl"
+                style={{ color: item.dorado ? "#C9A96E" : "#F5F2EC" }}
+              >
+                →
+              </span>
             </div>
           </Link>
         ))}
       </div>
 
-      {/* DESKTOP — 3 cards en fila */}
-      <div className="hidden md:grid grid-cols-3 gap-6 px-6 pb-10 md:flex-1">
+      {/* DESKTOP — 3 cards en fila, misma altura, Terapias más ancha con acento dorado */}
+      <div className="hidden md:flex items-stretch gap-6 px-6 pb-10 md:flex-1">
         {cards.map((item, i) => (
           <Link
             key={i}
             href={item.link}
-            className="relative overflow-hidden rounded-2xl group" style={{ minHeight: "420px" }}
+            className="relative overflow-hidden rounded-2xl group"
+            style={{
+              minHeight: "420px",
+              flex: item.destacado ? "1.3" : "1",
+              border: item.destacado ? "1px solid #C9A96E" : "none",
+            }}
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
               style={{ backgroundImage: `url(${item.img})` }}
             />
-            <div className="absolute inset-0" style={{ background: "rgba(44,62,45,0.35)" }} />
-            <div className="relative h-full flex flex-col justify-end p-6">
-              <h2 className="font-display text-xl mb-1" style={{ color: item.dorado ? "#C9A96E" : "#F5F2EC" }}>{item.title}</h2>
-              <p className="text-sm opacity-80 text-white">{item.text}</p>
+            <div
+              className="absolute inset-0"
+              style={{ background: `linear-gradient(to bottom, rgba(44,62,45,0.15) 0%, rgba(44,62,45,${item.overlayTo}) 100%)` }}
+            />
+            <div className="relative h-full flex justify-between items-end p-6">
+              <div>
+                <h2
+                  className="font-display mb-1"
+                  style={{
+                    color: item.dorado ? "#C9A96E" : "#F5F2EC",
+                    fontSize: item.destacado ? "28px" : "20px",
+                  }}
+                >
+                  {item.title}
+                </h2>
+                <p className="text-sm opacity-80 text-white">{item.text}</p>
+              </div>
+              <span
+                aria-label={`Explorar ${item.title}`}
+                className="shrink-0 text-2xl transition-transform duration-300 group-hover:translate-x-1"
+                style={{ color: item.dorado ? "#C9A96E" : "#F5F2EC" }}
+              >
+                →
+              </span>
             </div>
           </Link>
         ))}

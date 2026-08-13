@@ -4,14 +4,11 @@ export default function CTA() {
       <div className="max-w-3xl mx-auto">
 
         <h2 className="font-display text-4xl md:text-5xl font-light mb-8" style={{ color: "#F5F2EC" }}>
-          No es solo viajar.
-          <br />
-          Es elegir cómo querés expandirte.
+          Recordar es el primer paso
         </h2>
 
         <p style={{ color: "#8FA888" }}>
-          Si sentís que es momento de dar el próximo paso,
-          podemos empezar hoy
+          ¿Damos el siguiente juntos?
         </p>
 
       </div>

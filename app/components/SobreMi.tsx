@@ -20,6 +20,7 @@ export default function SobreMi() {
   ]
 
   const [fotoActual, setFotoActual] = useState(0)
+  const [expandido, setExpandido] = useState(false)
 
   useEffect(() => {
     const intervalo = setInterval(() => {
@@ -29,10 +30,10 @@ export default function SobreMi() {
   }, [])
 
   const carrusel = (
-  <div
-    className="relative w-full h-full md:rounded-2xl md:overflow-hidden md:border"
-    style={{ borderColor: "#DDD6C8" }}
-  >
+    <div
+      className="relative w-full h-full md:rounded-2xl md:overflow-hidden md:border"
+      style={{ borderColor: "#DDD6C8" }}
+    >
       {fotos.map((foto, i) => (
         <img
           key={i}
@@ -57,30 +58,59 @@ export default function SobreMi() {
 
   const texto = (
     <div className="flex-1">
-      <h2 className="font-display text-3xl md:text-4xl font-light mb-8 leading-tight" style={{ color: "#2C3E2D" }}>
+      <h2 className="font-display text-3xl md:text-4xl font-light mb-2 leading-tight" style={{ color: "#2C3E2D" }}>
         Mi camino
       </h2>
-      <p className="text-lg leading-relaxed mb-6" style={{ color: "#5C7A58" }}>
-        Hola, soy Cristian Mollo, licenciado en turismo y terapeuta holístico.
+
+      {/* Byline */}
+      <p className="font-display text-lg font-medium mb-1" style={{ color: "#2C3E2D" }}>
+        Cristian Mollo
       </p>
-      <p className="text-lg leading-relaxed mb-6" style={{ color: "#5C7A58" }}>
-        Mi camino no fue lineal.
-        Durante años trabajé en turismo, pero sentía que había algo más… algo más profundo que el simple hecho de viajar.
+      <p className="text-sm mb-6" style={{ color: "#8FA888" }}>
+        Terapeuta holístico · Licenciado en Turismo
       </p>
-      <p className="text-lg leading-relaxed mb-6" style={{ color: "#5C7A58" }}>
-        Con el tiempo comprendí que el verdadero viaje es hacia adentro.
+
+      {/* Resumen corto */}
+      <p className="text-lg leading-relaxed mb-4" style={{ color: "#5C7A58" }}>
+        Del turismo a lo espiritual: hoy acompaño procesos de conexión y expansión, integrando lo energético con lo humano.
       </p>
-      <p className="text-lg leading-relaxed mb-6" style={{ color: "#5C7A58" }}>
-        Hoy acompaño procesos de conexión y expansión, integrando lo energético con lo humano.
-      </p>
-      <p className="text-lg leading-relaxed mb-6" style={{ color: "#5C7A58" }}>
-        No creo en experiencias vacías.
-        Creo en espacios que transforman.
-      </p>
-      <p className="text-lg leading-relaxed" style={{ color: "#5C7A58" }}>
-        Cada sesión, cada formación y cada viaje que comparto nace desde ese lugar:
-        la conciencia, la presencia y el alma.
-      </p>
+
+      {!expandido && (
+        <button
+          onClick={() => setExpandido(true)}
+          className="text-sm font-medium mb-2 inline-flex items-center gap-1 transition hover:opacity-70"
+          style={{ color: "#2C3E2D" }}
+        >
+          Leer más →
+        </button>
+      )}
+
+      {expandido && (
+        <div className="space-y-6">
+          <p className="text-lg leading-relaxed" style={{ color: "#5C7A58" }}>
+            Mi camino no fue lineal. Durante años trabajé en turismo, pero sentía que había algo más… algo más
+            profundo. Con el tiempo, ese llamado se hizo claro: comprendí que el verdadero viaje es hacia adentro.
+          </p>
+          <p className="text-lg leading-relaxed" style={{ color: "#5C7A58" }}>
+            Desde ahí dejé de buscar experiencias vacías, y empecé a crear espacios que transforman. Cada sesión,
+            cada formación y cada viaje que comparto nace de ese mismo lugar: la conciencia, la presencia y el alma.
+          </p>
+          <p className="text-lg leading-relaxed" style={{ color: "#5C7A58" }}>
+            Por eso no niego mi pasado como profesional del turismo — lo abrazo, y me expando desde otra
+            perspectiva. Hoy ambos caminos son uno solo: viajar y transformarse.
+          </p>
+          <p className="text-lg leading-relaxed font-medium" style={{ color: "#2C3E2D" }}>
+            ¿Me acompañás?
+          </p>
+          <button
+            onClick={() => setExpandido(false)}
+            className="text-sm font-medium inline-flex items-center gap-1 transition hover:opacity-70"
+            style={{ color: "#8FA888" }}
+          >
+            Leer menos ↑
+          </button>
+        </div>
+      )}
     </div>
   )
 
@@ -104,49 +134,39 @@ export default function SobreMi() {
           {texto}
         </div>
 
-        {/* Tres formas — igual en ambos */}
-        <div className="pt-16" style={{ borderTop: "0.5px solid #DDD6C8" }}>
-          <h3 className="font-display text-3xl font-light text-center mb-12" style={{ color: "#2C3E2D" }}>
-            Formas de acompañarte
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8">
-
-            <div className="text-center px-4">
-              <h4 className="font-display text-xl font-medium mb-3" style={{ color: "#2C3E2D" }}>Sesiones personales</h4>
-              <p className="text-base leading-relaxed" style={{ color: "#5C7A58" }}>
-                Sesiones individuales para desbloquear, ordenar y expandir tu proceso personal.
-              </p>
-              <a href="#servicios" className="inline-block mt-4 text-sm transition" style={{ color: "#2C3E2D" }}>
-                Explorar sesiones →
-              </a>
-            </div>
-
-            <div className="text-center px-4">
-              <h4 className="font-display text-xl font-medium mb-3" style={{ color: "#2C3E2D" }}>Viajes & Experiencias</h4>
-              <p className="text-base leading-relaxed" style={{ color: "#5C7A58" }}>
-                Destinos y experiencias diseñadas para conectar conciencia y propósito.
-              </p>
-              <a href="/viajes" className="inline-block mt-4 text-sm transition" style={{ color: "#C9A96E" }}>
-                Descubrir experiencias →
-              </a>
-            </div>
-
-            <div className="text-center px-4">
-              <h4 className="font-display text-xl font-medium mb-3" style={{ color: "#2C3E2D" }}>Formaciones</h4>
-              <p className="text-base leading-relaxed" style={{ color: "#5C7A58" }}>
-                Programas estructurados para quienes desean profundizar y profesionalizar su camino.
-              </p>
-              <a href="#formaciones" className="inline-block mt-4 text-sm transition" style={{ color: "#2C3E2D" }}>
-                Ver programas →
-              </a>
-            </div>
-
+        {/* Formas de acompañarte — línea compacta, Terapias al centro con acento dorado */}
+        <div className="pt-16 text-center" style={{ borderTop: "0.5px solid #DDD6C8" }}>
+          <p className="text-base mb-4" style={{ color: "#5C7A58" }}>
+            ¿Con cuál empezamos?
+          </p>
+          <div className="flex flex-wrap justify-center items-baseline gap-3">
+            <a
+              href="#formaciones"
+              className="font-display text-lg transition hover:opacity-70"
+              style={{ color: "#2C3E2D" }}
+            >
+              Formaciones
+            </a>
+            <span style={{ color: "#DDD6C8" }}>·</span>
+            <a
+              href="#servicios"
+              className="font-display text-2xl font-medium transition hover:opacity-70"
+              style={{ color: "#C9A96E" }}
+            >
+              Terapias
+            </a>
+            <span style={{ color: "#DDD6C8" }}>·</span>
+            <a
+              href="#retiros"
+              className="font-display text-lg transition hover:opacity-70"
+              style={{ color: "#2C3E2D" }}
+            >
+              Retiros
+            </a>
           </div>
         </div>
 
       </div>
     </section>
-
-    
   )
 }

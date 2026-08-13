@@ -62,9 +62,8 @@ export default function Formaciones() {
       titulo: "Un Nivel",
       descripcion: "Comenzá tu camino en Reiki.",
       precio: "$ 65.000 ARS",
-      paraQuien: "Para quienes quieren iniciar su camino en Reiki y aprender a canalizar energía desde cero. Ideal si sentís el llamado pero todavía no tenés experiencia.",
+      paraQuien: "Para quienes quieren iniciar su camino en Reiki y aprender a canalizar energía desde cero. O para aquellas personas que ya se iniciarion y desean avanzar de nivel.",
       incluye: [
-        "Introducción al sistema Reiki Usui",
         "Técnicas de tratamiento",
         "Manual",
         "Clase grabada",
@@ -99,7 +98,7 @@ export default function Formaciones() {
       precio: "$200.000 ARS",
       paraQuien: "Una formación completa para quienes deseen recorrer todo el camino y acompañar a otros en su búsqueda.",
       incluye: [
-        "Nivel 1, 2, 3 + Maestría",
+        "4 Niveles (1, 2, 3 y Maestría)",
         "Símbolos maestros",
         "Canalización con cristales",
         "Habilitación para enseñar e iniciar",
@@ -120,10 +119,11 @@ export default function Formaciones() {
         <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-4" style={{ color: "#2C3E2D" }}>
           Formación en Reiki Ryoho Usui
         </h2>
-        <p className="text-center mb-10 md:mb-16 max-w-xl mx-auto" style={{ color: "#5C7A58" }}>
-          Tres formas de hacer tu camino. Elegí la que resuene hoy con vos.
-        </p>
 
+        <p className="text-center mb-10 md:mb-16 max-w-xl mx-auto" style={{ color: "#5C7A58" }}>
+          Vos marcás el ritmo de tu camino.
+        </p>
+        
         <div className="grid md:grid-cols-3 gap-4 md:gap-8">
           {opciones.map((opcion) => (
             <FormacionCard

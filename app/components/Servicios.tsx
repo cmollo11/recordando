@@ -8,7 +8,7 @@ type Servicio = {
   quees: string
   descripcion: string
   beneficios: string[]
-  duracion: string
+  precio: string
   ideal: string
   whatsapp: string
   imagen: string
@@ -44,7 +44,6 @@ function ServicioCard({ servicio, onClick, delay }: { servicio: Servicio; onClic
         <p className="text-sm mb-4" style={{ color: "#8FA888" }}>
           {servicio.descripcion}
         </p>
-        <p className="text-sm mb-4" style={{ color: "#8FA888" }}>⏱ {servicio.duracion}</p>
       </div>
       <span className="relative z-10 inline-flex items-center justify-center gap-2 text-sm font-medium" style={{ color: "#fff" }}>
         Ver más →
@@ -61,31 +60,31 @@ export default function Servicios() {
       titulo: "Reiki Ryoho Usui",
       descripcion: "Armonización profunda de tu campo energético.",
       imagen: "/images/terapias.jpg",
-      quees: "Este encuentro se desarrolla en tres etapas: comenzamos con una meditación guiada, luego recibís un mensaje de los ángeles y finalmente la canalización de energía vital del universo.",
-      beneficios: ["Liberar bloqueos", "Calmar la ansiedad", "Armonizar tu energía", "Ganar claridad emocional", "Volver al presente"],
-      duracion: "60 minutos aprox.",
+      quees: "La sesión comienza con una breve conversación para conocer tu intención. Luego realizamos una meditación guiada y, finalmente, llevamos a cabo la canalización de energía vital del universo.",
+      beneficios: ["Calmar la ansiedad", "Volver al presente", "Armonizar tu energía"],
+      precio: "44.000.-ARS ", // TODO: completar valor de la sesión
       ideal: "Ideal si estás atravesando estrés, ansiedad o necesitás volver a tu eje.",
       whatsapp: "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20de%20Reiki%20Ryoho%20Usui",
+    },
+    {
+      titulo: "Radiestesia",
+      descripcion: "Limpiezas energéticas para personas y hogares.",
+      imagen: "/images/limpieza.jpg",
+      quees: "Una limpieza energética ayuda a renovar la vibración y a restaurar el bienestar tuyo y el de los ambientes donde vivís.",
+      beneficios: ["Tener un diagnóstico energético", "Eliminar energías estancadas", "Restaurar el flujo energético"],
+      precio: "desde 65.000.-ARS (se realiza un testeo previo)", // TODO: completar valor de la sesión
+      ideal: "El testeo tiene un valor de $20.000.-ARS, el mismo se descuenta de la sesión. En los hogares el valor total de la sesión depende de la cantidad de ambientes.",
+      whatsapp: "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20de%20Limpieza%20de%20Hogares",
     },
     {
       titulo: "Registros Akáshicos",
       descripcion: "Mensajes del alma para comprender tus procesos.",
       imagen: "/images/registros.jpg",
-      quees: "Con el permiso de los Maestros vamos a entrar en tus Registros. En ese viaje vas a recibir los mensajes que tus Guías sientan necesario revelarte en ese momento para tu evolución. Podrás recibir información de vidas pasadas, presente y potencialidades futuras. Todo mensaje es con amor y siempre va a ser para tu propio bien. Es un viaje muy armonioso que trae muchas respuestas y claridad en tu camino.",
+      quees: "Con el permiso de los Maestros, accederemos a tus Registros para recibir los mensajes que tus Guías tengan para vos en este momento siempre desde el amor.",
       beneficios: ["Respuestas sobre situaciones actuales", "Comprensión de vínculos y procesos", "Información de tu historia y potencial futuro"],
-      duracion: "60 minutos aprox.",
+      precio: "65.000.-ARS ", // TODO: completar valor de la sesión
       ideal: "Ideal si buscás respuestas y claridad en un momento de decisión.",
       whatsapp: "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20de%20Registros%20Ak%C3%A1shicos",
-    },
-    {
-      titulo: "Limpieza de Hogares",
-      descripcion: "Limpieza de hogares con Reiki.",
-      imagen: "/images/limpieza.jpg",
-      quees: "Liberación de energías estancadas en tu hogar mediante Reiki. Una limpieza energética ayuda a renovar la vibración del espacio y a restaurar calma, liviandad y bienestar en los ambientes donde vivís.",
-      beneficios: ["Libera energías estancadas del hogar", "Restaura la armonía del ambiente", "Genera sensación de calma y liviandad", "Ayuda a soltar cargas energéticas acumuladas"],
-      duracion: "consultar por sesión presencial",
-      ideal: "Ideal cuando sentís el ambiente cargado y querés renovar la energía ó para cuando vas habitar un nuevo hogar",
-      whatsapp: "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20de%20Limpieza%20de%20Hogares",
     },
   ]
 
@@ -96,6 +95,10 @@ export default function Servicios() {
         <h2 className="font-display text-3xl md:text-4xl font-light text-center mb-14" style={{ color: "#2C3E2D" }}>
           Experiencias para liberar y armonizar tu energía
         </h2>
+
+        <p className="text-center mb-10 md:mb-16 max-w-xl mx-auto" style={{ color: "#5C7A58" }}>
+          Elegí lo que resuene hoy con vos.
+        </p>
 
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {servicios.map((servicio, i) => (
@@ -183,7 +186,7 @@ export default function Servicios() {
                 ))}
               </ul>
             </div>
-            <p className="text-sm mb-2" style={{ color: "#8FA888" }}>⏱ {modalAbierto.duracion}</p>
+            <p className="text-sm mb-2" style={{ color: "#8FA888" }}>💲 {modalAbierto.precio}</p>
             <p className="text-sm italic mb-8" style={{ color: "#8FA888" }}>{modalAbierto.ideal}</p>
             <button
               onClick={() => window.open(modalAbierto.whatsapp, "_blank")}
