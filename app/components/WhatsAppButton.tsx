@@ -1,11 +1,21 @@
 "use client"
 
+// Meta Pixel: helper seguro (no hace nada si el Píxel aún no cargó o está bloqueado)
+const trackMeta = (evento: string, params?: Record<string, unknown>) => {
+  if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+    ;(window as any).fbq("track", evento, params)
+  }
+}
+
 export default function WhatsAppButton() {
   const whatsapp = "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20tengo%20una%20consulta"
 
   return (
     <button
-      onClick={() => window.open(whatsapp, "_blank")}
+      onClick={() => {
+        trackMeta("Contact", { content_name: "Botón flotante WhatsApp" })
+        window.open(whatsapp, "_blank")
+      }}
       style={{
         position: "fixed",
         bottom: "24px",

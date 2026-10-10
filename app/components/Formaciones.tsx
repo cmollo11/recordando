@@ -3,6 +3,13 @@
 import { useState } from "react"
 import { useInView } from "react-intersection-observer"
 
+// Meta Pixel: helper seguro (no hace nada si el Píxel aún no cargó o está bloqueado)
+const trackMeta = (evento: string, params?: Record<string, unknown>) => {
+  if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+    ;(window as any).fbq("track", evento, params)
+  }
+}
+
 type Opcion = {
   titulo: string
   descripcion: string
@@ -129,7 +136,10 @@ export default function Formaciones() {
             <FormacionCard
               key={opcion.titulo}
               opcion={opcion}
-              onClick={() => setModalAbierto(opcion)}
+              onClick={() => {
+                setModalAbierto(opcion)
+                trackMeta("ViewContent", { content_name: opcion.titulo, content_category: "Formaciones" })
+              }}
             />
           ))}
         </div>
@@ -184,7 +194,10 @@ export default function Formaciones() {
               Cupos limitados — consultá disponibilidad.
             </p>
             <button
-              onClick={() => window.open(whatsapp(modalAbierto.titulo), "_blank")}
+              onClick={() => {
+                trackMeta("Lead", { content_name: modalAbierto.titulo, content_category: "Formaciones" })
+                window.open(whatsapp(modalAbierto.titulo), "_blank")
+              }}
               className="w-full py-4 rounded-xl font-medium text-lg transition"
               style={{ background: "#C9A96E", color: "#1a2b1b" }}
             >

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Playfair_Display, Lato } from "next/font/google";
 import WhatsAppButton from "./components/WhatsAppButton";
+import MetaPixel from "./components/MetaPixel";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -30,9 +31,10 @@ export default function RootLayout({
   return (
     <html lang="es">
 
-        <body className={`${lato.variable} ${playfair.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${lato.variable} ${playfair.variable} font-sans antialiased`} suppressHydrationWarning>
+      <MetaPixel />
         {children}
-        <WhatsAppButton />
+      <WhatsAppButton />
       </body>
     </html>
   );

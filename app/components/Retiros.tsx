@@ -1,5 +1,12 @@
 "use client"
 
+// Meta Pixel: helper seguro (no hace nada si el Píxel aún no cargó o está bloqueado)
+const trackMeta = (evento: string, params?: Record<string, unknown>) => {
+  if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+    ;(window as any).fbq("track", evento, params)
+  }
+}
+
 export default function Retiros() {
   const whatsapp =
     "https://wa.me/5491159715854?text=Hola%20Cristian%2C%20quiero%20anotarme%20en%20la%20lista%20de%20espera%20de%20Retiros%20%26%20Escapadas"
@@ -34,7 +41,10 @@ export default function Retiros() {
             Experiencias diseñadas para la pausa, la presencia y la transformación personal.
           </p>
           <button
-            onClick={() => window.open(whatsapp, "_blank")}
+            onClick={() => {
+              trackMeta("Lead", { content_name: "Retiros & Escapadas", content_category: "Retiros" })
+              window.open(whatsapp, "_blank")
+            }}
             className="px-8 py-3 rounded-xl font-medium transition hover:opacity-85"
             style={{ background: "#C9A96E", color: "#2C3E2D" }}
           >

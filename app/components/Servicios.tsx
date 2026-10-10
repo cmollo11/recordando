@@ -3,6 +3,13 @@
 import { useState } from "react"
 import { useInView } from "react-intersection-observer"
 
+// Meta Pixel: helper seguro (no hace nada si el Píxel aún no cargó o está bloqueado)
+const trackMeta = (evento: string, params?: Record<string, unknown>) => {
+  if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+    ;(window as any).fbq("track", evento, params)
+  }
+}
+
 type Servicio = {
   titulo: string
   quees: string
@@ -105,7 +112,10 @@ export default function Servicios() {
             <ServicioCard
               key={servicio.titulo}
               servicio={servicio}
-              onClick={() => setModalAbierto(servicio)}
+              onClick={() => {
+                setModalAbierto(servicio)
+                trackMeta("ViewContent", { content_name: servicio.titulo, content_category: "Terapias" })
+              }}
               delay={i * 150}
             />
           ))}
@@ -189,7 +199,10 @@ export default function Servicios() {
             <p className="text-sm mb-2" style={{ color: "#8FA888" }}>💲 {modalAbierto.precio}</p>
             <p className="text-sm italic mb-8" style={{ color: "#8FA888" }}>{modalAbierto.ideal}</p>
             <button
-              onClick={() => window.open(modalAbierto.whatsapp, "_blank")}
+              onClick={() => {
+                trackMeta("Lead", { content_name: modalAbierto.titulo, content_category: "Terapias" })
+                window.open(modalAbierto.whatsapp, "_blank")
+              }}
               className="w-full py-4 rounded-xl font-medium text-lg transition"
               style={{ background: "#7C6FCD", color: "#fff" }}
             >
