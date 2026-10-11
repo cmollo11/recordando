@@ -19,6 +19,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Recordando",
   description: "Terapias, viajes y formación espiritual",
+  other: {
+    "facebook-domain-verification": "bvqgrh3qm7kqn1gqkh13lavtd1fv04",
+  },
 };
 
 export default function RootLayout({
