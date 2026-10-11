@@ -1,6 +1,6 @@
 import Script from "next/script"
 
-const PIXEL_ID = "1081610238005672"
+const PIXEL_ID = "2730204654040577"
 
 export default function MetaPixel() {
   return (
